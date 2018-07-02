@@ -1,0 +1,13 @@
+<table>
+    <tr>
+        <th> Nome </th>
+        <th> Cidade </th>
+    </tr>
+    <% @storages.each do |ls| %>
+        <tr>
+            <td> <%= ls.name %> </td>
+            <td> <%= ls.city %> </td>
+        </tr>
+    <% end %>
+
+</table>
