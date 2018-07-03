@@ -1,0 +1,29 @@
+<%= dialog_body do %>
+<div class="row mt-5 mb-5 pull-right">
+        <%= link_to "Novo Paciente", new_patient_path, class: "btn btn-primary"%>
+    </div>
+  <h3 class="mb-5"> Lista de pacientes </h3>
+  <% unless @patients.nil?%>
+    <table class="table table-bordered">
+      <tr>
+          <th> Key </th>       
+          <th> Nome </th>
+          <th> CPF </th>
+          <th> Telefone </th>
+          <th> </th>
+          <th> </th>
+      </tr>
+      <% @patients.each do |p| %>
+        <tr>
+            <td><%= p.key %></td>
+            <td><%= p.name %></td>
+            <td><%= p.cpf %></td>
+            <td><%= p.telefone %></td>
+            <td> <%= link_to "Detalhes", patient_path(p.key)%>
+            <td> <%= link_to "Deletar", patient_path(p.key), method: :delete%>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+<% end %>
+

@@ -18,11 +18,11 @@ class PatientsController < ApplicationController
     end
   
     def create
-        @patient = Patient.new(user_params)
+        @patient = Patient.new(patient_params)
         patient = @patient
         PatientsCollection.save patient
         respond_to do |format|
-            format.html { redirect_to local_storages_path, notice: 'Bem vindo.' }
+            format.html { redirect_to patients_path, notice: 'Bem vindo.' }
             format.json { head :no_content }
         end
     end
@@ -33,6 +33,6 @@ class PatientsController < ApplicationController
     private
   
         def patient_params
-            params.require(:patient).permit(:email, :password, :name)
+            params.require(:patient).permit(:telefone, :name, :cpf)
         end
 end

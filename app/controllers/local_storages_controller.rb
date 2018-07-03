@@ -14,15 +14,20 @@ class LocalStoragesController < ApplicationController
   
     def show
       @storage = LocalStoragesCollection.by_key params[:id]
+      stocks = StocksCollection.by_example(local_storage: params[:id])
+      @med = []
+      stocks.each do |s|
+        @med << (MedicinesCollection.by_key s.medicine)
+        puts s.medicine
+        puts @med
+        puts 'LALALALALLALAALALALALALALALALLAAL'
+      end
     end
   
     def new
       @local_storage = LocalStorage.new
     end
-  
-    def edit
-      @patient.build_personal_information if @patient.personal_information.nil?
-    end
+
 
     #pinkie = Pony.new(name: "Pinkie Pie")
     #PoniesCollection.save pinkie
@@ -32,7 +37,7 @@ class LocalStoragesController < ApplicationController
     
         respond_to do |format|
           format.html { redirect_to local_storages_path, notice: 'Unidade foi criada.' }
-      end
+        end
     end
 
     #existing_pony.name = "Applejack"

@@ -14,6 +14,6 @@ class LocalStorage
   attribute :dsc_adap_defic_fisic_idosos, String
   attribute :dsc_equipamentos, String
   attribute :dsc_medicamentos, String
-  attribute :medicines, Array[Medicine]
+  attribute :medicines, Array[Medicine], coerce: false
 
 end

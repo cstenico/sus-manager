@@ -1,0 +1,15 @@
+<%= dialog_sm do %>
+  <div class="card shadow">
+    <div class="card-body">
+      <h4 class="mb-3"> Novo paciente </h4>
+        <%= bootstrap_form_for patient, html: {class: "nifty_form"} do |f| %>
+        <%= f.text_field :name %>
+        <%= f.text_field :cpf %>
+        <%= f.text_field :telefone %>
+
+        <%= f.submit "Criar" %>
+        <% end %>
+      <hr/>
+    </div>
+  </div>
+<% end %>
