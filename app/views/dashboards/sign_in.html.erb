@@ -1,0 +1,14 @@
+<%= dialog_sm do %>
+  <div class="card shadow">
+    <div class="card-body">
+      <h4 class="mb-3"> SUS Manager </h4>
+      <%= bootstrap_form_tag url: 'users/login' do |f| %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.submit "Login", class: "btn btn-primary btn-block" %>
+        <%= link_to "Registrar", new_user_path, class: "btn btn-outline-success btn-block"%>
+      <% end %>
+      <hr/>
+    </div>
+  </div>
+<% end %>

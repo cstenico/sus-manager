@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     # The request to the database is made
     # => #<Pony:0x90u81 …>
     def index
+        @users = UsersCollection.all
 
     end
 
@@ -14,9 +15,8 @@ class UsersController < ApplicationController
     end
 
     def login
-        byebug
-        user = UsersCollection.by_example(email: user_params[:email])
-        if user.password == user_params[:password]
+        user = UsersCollection.by_example(email: params[:email])
+        if user.first.password == params[:password]
             flash[:success] = "Bem vindo"
             redirect_to local_storages_path   
         else
@@ -44,6 +44,6 @@ class UsersController < ApplicationController
     private
   
         def user_params
-            params.require(:user).permit(:email, :password, :name)
+            params.require(:user).permit(:email, :password, :name, :cpf, :role)
         end
 end

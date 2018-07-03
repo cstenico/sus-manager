@@ -1,13 +1,18 @@
-<%= dialog_sm do %>
-  <div class="card shadow">
-    <div class="card-body">
-      <%= form_tag("/login", method: "get") do %>
-        <%= email_field :email, autofocus: true, autocomplete: "email" %>
-        <%= password_field :password, autocomplete: "off" %>
-        <%= submit_tag "Login", class: "btn btn-success btn-block" %>
-        <%= link_to "Registrar", new_user_path, class: "btn btn-link"%>
-      <% end %>
-      <hr/>
-    </div>
-  </div>
+<% unless @users.nil?%>
+  <table>
+    <tr>
+        <th> Nome </th>
+        <th> CPF </th>
+        <th> Cargo </th>
+        <th> E-mail </th>
+    </tr>
+    <% @users.each do |u| %>
+      <tr>
+          <td><%= u.name %></td>
+          <td><%= u.cpf %></td>
+          <td><%= u.role %></td>
+          <td><%= u.email %></td>
+      </tr>
+    <% end %>
+  </table>
 <% end %>

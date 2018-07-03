@@ -1,6 +1,6 @@
 class HasStocked
     include Guacamole::Edge
   
-    from :medicines
-    to   :local_storages
+    from :local_storages
+    to   :medicines
 end

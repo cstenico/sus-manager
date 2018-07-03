@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   resources :local_storages
   resources :users
   resources :medicines
-  
-  get '/login' => 'users#login'
+  resources :dashboards
+  resources :patients
 
-  root to: 'users#index'
+
+  post '/users/login', to: 'users#login'
+  root to: 'dashboards#sign_in'
 
 end

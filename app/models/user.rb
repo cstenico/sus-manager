@@ -4,4 +4,6 @@ class User
   attribute :name, String
   attribute :email, String
   attribute :password, String
+  attribute :role, String
+  attribute :cpf, String
 end
