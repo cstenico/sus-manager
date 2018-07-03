@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sus Manager</title>
+    <title>SUS Manager</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= render "layouts/favicons_heading" %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body class="application <%= controller.controller_name %> <%= controller.action_name %>">
     <%= render "shared/navbar", is_modal: !!@modal_navbar %>
+    <span id="system-snack-notice" data-toggle="snackbar" data-content="<%= notice %>"></span>
+    <span id="system-snack-alert" data-toggle="snackbar" data-content="<%= alert %>"></span>
     <%= yield %>
   </body>
 </html>

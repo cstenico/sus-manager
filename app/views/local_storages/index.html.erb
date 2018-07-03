@@ -1,13 +1,25 @@
-<table>
-    <tr>
-        <th> Nome </th>
-        <th> Cidade </th>
-    </tr>
-    <% @storages.each do |ls| %>
-        <tr>
-            <td> <%= ls.name %> </td>
-            <td> <%= ls.city %> </td>
-        </tr>
-    <% end %>
+<%= dialog_body do %>
+    <div class="row mt-5 mb-5 pull-right">
+        <%= link_to "Nova Unidade", new_local_storage_path, class: "btn btn-primary"%>
+    </div>
 
-</table>
+    <div class="row">
+        <div class="mb-5">
+            <h3> Lista de unidades de saúde </h3>
+        </div>
+    </div>
+    <table class="table table-centered">
+        <tr>
+            <th> Nome </th>
+            <th> Cidade </th>
+            <th> </th>
+        </tr>
+        <% @storages.each do |ls| %>
+            <tr>
+                <td> <%= ls.name %> </td>
+                <td> <%= ls.city %> </td>
+                <td> <%= link_to "Detalhes", local_storage_path(ls.key)%>
+            </tr>
+        <% end %>
+    </table>
+<% end %>

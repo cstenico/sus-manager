@@ -13,7 +13,7 @@ class LocalStoragesController < ApplicationController
     end
   
     def show
-
+      @storage = LocalStoragesCollection.by_key params[:id]
     end
   
     def new

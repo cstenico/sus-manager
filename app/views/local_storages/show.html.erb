@@ -1,11 +1,17 @@
-<table>
-    <tr>
-        <th> Nome </th>
-        <th> Cidade </th>
-    </tr>
-    <% @local_storages.each do |ls| %>
-    <tr>
-        <td> ls.name </td>
-        <td> ls.city </td>
-    </tr>
-</table>
+<%= dialog_body do %>
+    <div class="row">
+        <div class="mb-5">
+            <h3> <%=@storage.name %> </h3>
+        </div>
+    </div>
+    <table class="table table-centered">
+        <tr>
+            <td> <strong> Nome </strong> </td>
+            <td> <%= @storage.name %> </td>
+        </tr>
+        <tr>
+            <td> <strong>Cidade </strong> </td>
+            <td> <%= @storage.city %> </td>
+        </tr>
+    </table>
+<% end %>

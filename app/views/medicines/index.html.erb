@@ -1,18 +1,21 @@
-<table class="table table-bordered">
-    <tr>
-        <th> NOME MEDICAMENTO </th>
-        <th> PREÇO </th>
-        <th> SUBSTANCIA </th>
-        <th> CNPJ </th>
-        <th> RAZAO SOCIAL </th>
-    </tr>
-    <% @medicines.each do |m| %>
+<%= dialog_body do %>
+  <h3 class="mb-5"> Lista de medicamentos </h3>
+    <table class="table table-bordered">
         <tr>
-            <td> <%=m.nomeMedicamento %> </td>
-            <td> <%=m.preco %> </td>
-            <td> <%=m.nomeSubstancia %> </td>
-            <td> <%= m.cnpj %> </td>
-            <td> <%=m.razaoSocial %> </td>
+            <th> NOME MEDICAMENTO </th>
+            <th> PREÇO </th>
+            <th> SUBSTANCIA </th>
+            <th> CNPJ </th>
+            <th> RAZAO SOCIAL </th>
         </tr>
-    <% end %>
-</table>
+        <% @medicines.each do |m| %>
+            <tr>
+                <td> <%=m.nomeMedicamento %> </td>
+                <td> <%=m.preco %> </td>
+                <td> <%=m.nomeSubstancia %> </td>
+                <td> <%=m.cnpj %> </td>
+                <td> <%=m.razaoSocial %> </td>
+            </tr>
+        <% end %>
+    </table>
+<% end %>

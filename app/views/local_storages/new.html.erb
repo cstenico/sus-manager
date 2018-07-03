@@ -1,7 +1,13 @@
-<%= form_for @local_storage, html: {class: "nifty_form"} do |f| %>
-  <%= f.label :name %><br />
-  <%= f.text_field :name %><br />
-  <%= f.label :city %><br />
-  <%= f.text_field :city %><br />
-  <%= f.submit "Create" %>
+<%= dialog_sm do %>
+  <div class="card shadow">
+    <div class="card-body">
+      <h4 class="mb-3"> Nova unidade </h4>
+        <%= bootstrap_form_for @local_storage, html: {class: "nifty_form"} do |f| %>
+          <%= f.text_field :name %>
+          <%= f.text_field :city %>
+          <%= f.submit "Create" %>
+        <% end %>
+        <hr/>
+    </div>
+  </div>
 <% end %>

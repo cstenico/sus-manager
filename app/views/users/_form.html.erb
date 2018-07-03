@@ -1,0 +1,17 @@
+<%= dialog_sm do %>
+  <div class="card shadow">
+    <div class="card-body">
+      <h4 class="mb-3"> Novo funcionário </h4>
+        <%= bootstrap_form_for user, html: {class: "nifty_form"} do |f| %>
+        <%= f.text_field :name %>
+        <%= f.text_field :cpf %>
+        <%= f.text_field :email %>
+        <%= f.text_field :password %>
+        <%= f.select :role, [["Doutor", "Doutor"], ["Farmaceutico", "Farmaceutico"]], { label: "Hierarquia:" }, { class: "selectpicker",  wrapper: { class: 'has-warning'} } %>
+
+        <%= f.submit "Criar" %>
+        <% end %>
+      <hr/>
+    </div>
+  </div>
+<% end %>

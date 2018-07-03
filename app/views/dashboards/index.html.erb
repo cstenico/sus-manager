@@ -1,15 +1,19 @@
-<div class="text-center">
-  <h1> SUS Manager </h1>
-  <h3> Escolha seu serviço </h3>
-  
-  <div class="d-md-flex justify-content-center">
-    <%= render "menu_item", 
-      path: patients_path, 
-      icon: "fas fa-users",
-      label: "Retirada de medicamentos" %>
-    <%= render "menu_item", 
-      path: users_path, 
-      icon: "fas fa-calendar-alt",
-      label: "Entrada de medicamentos" %>
+<%= dialog_body do %>
+    
+  <div class="text-center">
+    <h1> SUS Manager </h1>
+    <hr></hr>
+    <h3 class="mb-3"> Escolha seu serviço </h3>
+    
+    <div class="d-md-flex justify-content-center">
+      <%= render "menu_item", 
+        path: patients_path, 
+        icon: "fas fa-users",
+        label: "Retirada de medicamentos" %>
+      <%= render "menu_item", 
+        path: users_path, 
+        icon: "fas fa-calendar-alt",
+        label: "Entrada de medicamentos" %>
+    </div>
   </div>
-</div>
+<%end%>

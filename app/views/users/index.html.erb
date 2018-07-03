@@ -1,18 +1,31 @@
-<% unless @users.nil?%>
-  <table>
-    <tr>
-        <th> Nome </th>
-        <th> CPF </th>
-        <th> Cargo </th>
-        <th> E-mail </th>
-    </tr>
-    <% @users.each do |u| %>
+<%= dialog_body do %>
+<div class="row mt-5 mb-5 pull-right">
+        <%= link_to "Novo Funcionário", new_user_path, class: "btn btn-primary"%>
+    </div>
+  <h3 class="mb-5"> Lista de funcionários </h3>
+  <% unless @users.nil?%>
+    <table class="table table-bordered">
       <tr>
-          <td><%= u.name %></td>
-          <td><%= u.cpf %></td>
-          <td><%= u.role %></td>
-          <td><%= u.email %></td>
+          <th> Key </th>       
+          <th> Nome </th>
+          <th> CPF </th>
+          <th> Cargo </th>
+          <th> E-mail </th>
+          <th> </th>
+          <th> </th>
       </tr>
-    <% end %>
-  </table>
+      <% @users.each do |u| %>
+        <tr>
+            <td><%= u.key %></td>
+            <td><%= u.name %></td>
+            <td><%= u.cpf %></td>
+            <td><%= u.role %></td>
+            <td><%= u.email %></td>
+            <td> <%= link_to "Detalhes", user_path(u.key)%>
+            <td> <%= link_to "Deletar", user_path(u.key), method: :delete%>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
 <% end %>
+
