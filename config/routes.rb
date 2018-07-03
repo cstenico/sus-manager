@@ -7,10 +7,13 @@ Rails.application.routes.draw do
   resources :patients
   resources :stocks
   resources :checkouts
+  resources :shipments
 
 
   get '/checkout/storage', to: 'checkouts#select_unit'
   get '/checkout/medicine', to: 'checkouts#select_medicine'
+  get '/shipment/storage', to: 'shipments#select_unit'
+  get '/shipment/medicine', to: 'shipments#select_medicine'
   post '/users/login', to: 'users#login'
   post '/sign_up', to: 'users#sign_up'
   root to: 'dashboards#sign_in'

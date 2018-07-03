@@ -1,0 +1,26 @@
+<%= dialog_body do %>
+  <h3 class="mb-5"> Checkouts de medicamentos </h3>
+    <table class="table table-bordered">
+      <tr>
+          <th> Medicamento Key </th>       
+          <th> UBS Key </th>
+          <th> Paciente </th>
+          <th> Cargo </th>
+          <th> E-mail </th>
+          <th> </th>
+          <th> </th>
+      </tr>
+      <% @users.each do |u| %>
+        <tr>
+            <td><%= u.key %></td>
+            <td><%= u.name %></td>
+            <td><%= u.cpf %></td>
+            <td><%= u.role %></td>
+            <td><%= u.email %></td>
+            <td> <%= link_to "Detalhes", user_path(u.key)%>
+            <td> <%= link_to "Deletar", user_path(u.key), method: :delete%>
+        </tr>
+      <% end %>
+    </table>
+<% end %>
+

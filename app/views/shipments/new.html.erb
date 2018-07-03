@@ -1,0 +1,14 @@
+<%= dialog_sm do %>
+  <div class="card shadow">
+    <div class="card-body">
+      <h4 class="mb-3"> Receber medicamento </h4>
+        <%= bootstrap_form_for @shipment, html: {class: "nifty_form"} do |f| %>
+        <%= f.hidden_field :medicine, value: @medicine.key %>
+        <%= f.hidden_field :local_storage, value: @storage.key %>
+        <%= f.number_field :quantidadeRecebida, min: 1 %>
+        <%= f.submit "Criar" %>
+        <% end %>
+      <hr/>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<%= dialog_body do %>
+  <h3 class="mb-5"> Selecione o medicamento</h3>
+  <%= dialog_sm do %>
+  <div class="card shadow">
+    <div class="card-body">
+      <%= bootstrap_form_tag url: '/shipments/new', :html => { :method => 'GET' } do |f| %>
+        <%= f.hidden_field :local_storage, value: @storage.key %>
+        <%= f.select :medicine, options_for_select(@medicines.map{ |s| [s.nomeMedicamento, s.key]}), { class: "form-control", data: { live_search: 'true' } } %>
+        <%= f.submit "Selecionar", class: "btn btn-primary btn-block" %>
+      <% end %>
+      <hr/>
+    </div>
+  </div>
+<% end %>
+    
+<% end %>
+

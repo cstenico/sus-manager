@@ -1,0 +1,16 @@
+<%= dialog_body do %>
+  <h3 class="mb-5"> Selecione a unidade </h3>
+  <%= dialog_sm do %>
+  <div class="card shadow">
+    <div class="card-body">
+      <%= bootstrap_form_tag url: '/shipment/medicine', :html => { :method => 'GET' } do |f| %>
+        <%= f.select :local_storage, options_for_select(@storages.map{ |s| [s.name, s.key]}), { class: "form-control", data: { live_search: 'true' } } %>
+        <%= f.submit "Selecionar", class: "btn btn-primary btn-block" %>
+      <% end %>
+      <hr/>
+    </div>
+  </div>
+<% end %>
+    
+<% end %>
+

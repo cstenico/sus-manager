@@ -1,4 +1,4 @@
-class CheckoutsController < ApplicationController
+class ShipmentsController < ApplicationController
 
     def select_unit
         @storages = LocalStoragesCollection.all.limit(50)
@@ -17,7 +17,7 @@ class CheckoutsController < ApplicationController
     end
 
     def new
-        @checkout = Checkout.new
+        @shipment = Shipment.new
         @storage = LocalStoragesCollection.by_key params[:local_storage]
         @medicine = MedicinesCollection.by_key params[:medicine]
         @stocks = StocksCollection.by_example(local_storage: @storage.key.to_i)
@@ -32,28 +32,28 @@ class CheckoutsController < ApplicationController
     end
 
     def create
-        checkout = Checkout.new(checkout_params)
-        CheckoutsCollection.save checkout
+        shipment = Shipment.new(shipment_params)
+        ShipmentsCollection.save shipment
 
-        @stocks = StocksCollection.by_example(local_storage:checkout_params[:local_storage].to_i)
+        @stocks = StocksCollection.by_example(local_storage:shipment_params[:local_storage].to_i)
         unless @stocks.nil?
             @stocks.each do |s|
-                if s.medicine.to_i == checkout_params[:medicine].to_i
+                if s.medicine.to_i == shipment_params[:medicine].to_i
                     @stock = s
                 end
             end
-            @stock.quantidade = @stock.quantidade.to_i - checkout_params[:quantidadeRetirada].to_i
+            @stock.quantidade = @stock.quantidade.to_i + shipment_params[:quantidadeRecebida].to_i
             StocksCollection.save @stock
         end
 
     
         respond_to do |format|
-          format.html { redirect_to local_storage_path(shipment_params[:local_storage].to_i), notice: 'Retirada registrada' }
+          format.html { redirect_to local_storage_path(shipment_params[:local_storage].to_i), notice: 'Carga recebida registrada' }
         end
     end
 
     def index
-        @checkouts = CheckoutsCollection.all
+        @shipments = ShipmentsCollection.all
     end
 
     def show
@@ -61,7 +61,7 @@ class CheckoutsController < ApplicationController
     
     private
   
-        def checkout_params
-            params.require(:checkout).permit(:local_storage, :medicine, :quantidadeRetirada, :user, :paciente)
+        def shipment_params
+            params.require(:shipment).permit(:local_storage, :medicine, :quantidadeRecebida, :user, :paciente)
         end
 end
