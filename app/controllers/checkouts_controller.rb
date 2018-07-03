@@ -48,7 +48,7 @@ class CheckoutsController < ApplicationController
 
     
         respond_to do |format|
-          format.html { redirect_to local_storage_path(shipment_params[:local_storage].to_i), notice: 'Retirada registrada' }
+          format.html { redirect_to local_storage_path(checkout_params[:local_storage].to_i), notice: 'Retirada registrada' }
         end
     end
 
