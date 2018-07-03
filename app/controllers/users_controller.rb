@@ -11,7 +11,6 @@ class UsersController < ApplicationController
 
     def index
         @users = UsersCollection.all
-
     end
 
     def show
@@ -31,6 +30,13 @@ class UsersController < ApplicationController
 
     def new
         @user = User.new
+    end
+
+    def sign_up
+        @user = User.new
+        respond_to do |format|
+            format.html { render :layout => 'static' }
+        end
     end
   
     def create

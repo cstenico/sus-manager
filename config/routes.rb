@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
 
   post '/users/login', to: 'users#login'
+  post '/sign_up', to: 'users#sign_up'
   root to: 'dashboards#sign_in'
 
 end

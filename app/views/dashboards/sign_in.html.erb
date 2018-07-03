@@ -6,7 +6,7 @@
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         <%= f.password_field :password, autocomplete: "off" %>
         <%= f.submit "Login", class: "btn btn-primary btn-block" %>
-        <%= link_to "Registrar", new_user_path, class: "btn btn-outline-success btn-block"%>
+        <%= link_to "Registrar", "/sign_up", method: :post, class: "btn btn-outline-success btn-block"%>
       <% end %>
       <hr/>
     </div>
