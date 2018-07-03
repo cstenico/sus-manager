@@ -1,4 +1,3 @@
-<%= dialog_body do %>
   <h3 class="mb-5"> Lista de medicamentos </h3>
     <table class="table table-bordered">
         <tr>
@@ -7,6 +6,8 @@
             <th> SUBSTANCIA </th>
             <th> CNPJ </th>
             <th> RAZAO SOCIAL </th>
+            <th> </th>
+            <th> </th>
         </tr>
         <% @medicines.each do |m| %>
             <tr>
@@ -15,7 +16,8 @@
                 <td> <%=m.nomeSubstancia %> </td>
                 <td> <%=m.cnpj %> </td>
                 <td> <%=m.razaoSocial %> </td>
+                <td> <%= link_to "Detalhes", medicine_path(m.key)%>
+                <td> </td>
             </tr>
         <% end %>
     </table>
-<% end %>

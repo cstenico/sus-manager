@@ -12,6 +12,7 @@ class MedicinesController < ApplicationController
     end
   
     def show
+      @medicine = MedicinesCollection.by_key params[:id]
 
     end
   

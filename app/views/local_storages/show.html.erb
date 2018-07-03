@@ -58,4 +58,19 @@
             <td> <%= @storage.vlr_longitude %> </td>
         </tr>
     </table>
+
+<% unless @stocks.nil?%>
+    <table class="table table-centered">
+        <tr> 
+            <th> Nome medicamento </th>
+            <th> Quantidade </th>
+        </tr>
+        <% @stocks.each do |s| %>
+            <tr>
+                <td> <%= @medicines[s.medicine.to_s] %> </td>
+                <td> <%= s.quantidade%> </td>
+            </tr>
+        <% end %>
+    </table>
+    <% end %>
 <% end %>

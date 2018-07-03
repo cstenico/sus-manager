@@ -14,13 +14,15 @@ class LocalStoragesController < ApplicationController
   
     def show
       @storage = LocalStoragesCollection.by_key params[:id]
-      stocks = StocksCollection.by_example(local_storage: params[:id])
-      @med = []
-      stocks.each do |s|
-        @med << (MedicinesCollection.by_key s.medicine)
-        puts s.medicine
-        puts @med
-        puts 'LALALALALLALAALALALALALALALALLAAL'
+      @stocks = StocksCollection.by_example(local_storage: @storage.key.to_i)
+      puts @stocks.inspect
+      @medicines = {}
+      unless @stocks.nil?
+        @stocks.each do |s|
+          medicine = MedicinesCollection.by_key s.medicine
+          puts medicine
+          @medicines[medicine.key] = medicine.nomeMedicamento
+        end
       end
     end
   

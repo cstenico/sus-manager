@@ -1,0 +1,70 @@
+<%= dialog_body do %>
+    <div class="row">
+        <div class="mb-5">
+            <h3> <%= @medicine.nomeMedicamento %> </h3>
+        </div>
+    </div>
+    <table class="table table-centered">
+        <tr>
+            <td> <strong> Nome </strong> </td>
+            <td> <%= @medicine.nomeMedicamento %> </td>
+        </tr>
+        <tr>
+            <td> <strong>Descrição </strong> </td>
+            <td> <%= @medicine.descricao %> </td>
+        </tr>
+        <tr>
+            <td> <strong>Substancia</strong> </td>
+            <td> <%= @medicine.nomeSubstancia %> </td>
+        </tr>
+        <tr>
+            <td> <strong> CNPJ </strong> </td>
+            <td> <%= @medicine.cnpj%> </td>
+        </tr>
+        <tr>
+            <td> <strong> Razão Social </strong> </td>
+            <td> <%= @medicine.razaoSocial %> </td>
+        </tr>
+        <tr>
+            <td> <strong> Preço sem ICMC </strong> </td>
+            <td> <%= @medicine.preco %> </td>
+        </tr>
+        <tr>
+            <td> <strong>Preço com Imposto </strong> </td>
+            <td> <%= @medicine.precoTax %> </td>
+        </tr>
+        <tr>
+            <td> <strong>Registro </strong> </td>
+            <td> <%= @medicine.noRegistro %> </td>
+        </tr>
+        <tr>
+            <td> <strong>cod Apresentação </strong> </td>
+            <td> <%= @medicine.codApresentacao %> </td>
+        </tr>
+        <tr>
+            <td> <strong>cod barras </strong> </td>
+            <td> <%= @medicine.codBarras %> </td>
+        </tr>
+        <tr>
+            <td> <strong>registro cas </strong> </td>
+            <td> <%= @medicine.registroCAS %> </td>
+        </tr>
+        <tr>
+            <td> <strong>tipo produto</strong> </td>
+            <td> <%= @medicine.tipoProduto %> </td>
+        </tr>
+        <tr>
+            <td> <strong>venda hospital</strong> </td>
+            <td> <%= @medicine.vendaHospital %> </td>
+        </tr>
+        <tr>
+            <td> <strong>lista cap</strong> </td>
+            <td> <%= @medicine.listaCap %> </td>
+        </tr>
+        <tr>
+            <td> <strong>lista confaz</strong> </td>
+            <td> <%= @medicine.listaConfaz %> </td>
+        </tr>
+    </table>
+<% end %>
+

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :medicines
   resources :dashboards
   resources :patients
+  resources :stocks
 
 
   post '/users/login', to: 'users#login'

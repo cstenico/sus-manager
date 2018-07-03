@@ -1,0 +1,18 @@
+<%= dialog_body do %>
+  <h3 class="mb-5"> Lista de estoques </h3>
+    <table class="table table-bordered">
+      <tr>
+          <th> Nome Unidade </th>       
+          <th> Nome Medicamento  </th>
+          <th> Quantidade </th>      
+      </tr>
+      <% @stocks.each do |s| %>
+        <tr>
+            <td><%= @storages[s.local_storage.to_s] %></td>
+            <td><%= @medicines[s.medicine.to_s] %></td>
+            <td><%= s.quantidade %></td>
+        </tr>
+      <% end %>
+    </table>
+<% end %>
+
