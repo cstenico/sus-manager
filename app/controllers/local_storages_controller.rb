@@ -15,7 +15,6 @@ class LocalStoragesController < ApplicationController
     def show
       @storage = LocalStoragesCollection.by_key params[:id]
       @stocks = StocksCollection.by_example(local_storage: @storage.key.to_i)
-      puts @stocks.inspect
       @medicines = {}
       unless @stocks.nil?
         @stocks.each do |s|

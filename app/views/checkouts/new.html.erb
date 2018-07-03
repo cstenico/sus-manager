@@ -1,0 +1,15 @@
+<%= dialog_sm do %>
+  <div class="card shadow">
+    <div class="card-body">
+      <h4 class="mb-3"> Checkout </h4>
+        <%= bootstrap_form_for @checkout, html: {class: "nifty_form"} do |f| %>
+        <%= f.hidden_field :medicine, value: @medicine.key %>
+        <%= f.hidden_field :local_storage, value: @storage.key %>
+        <%= f.select :paciente, options_for_select(@patients.map{ |s| [s.name, s.key]}), { class: "form-control", data: { live_search: 'true' } } %>
+        <%= f.number_field :quantidadeRetirada, max: @stock.quantidade, min: 1 %>
+        <%= f.submit "Criar" %>
+        <% end %>
+      <hr/>
+    </div>
+  </div>
+<% end %>
