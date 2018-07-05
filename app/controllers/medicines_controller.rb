@@ -58,6 +58,14 @@ class MedicinesController < ApplicationController
         format.json { head :no_content }
       end
     end
+
+    def ask_local
+    end
+
+    def query_results
+      medicine = params[:medicine]
+      @medicines = MedicinesCollection.by_example(nomeMedicamento: medicine)
+    end
   
     private
   

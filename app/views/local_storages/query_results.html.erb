@@ -1,0 +1,17 @@
+<%= dialog_body do %>
+
+    <div class="row">
+        <div class="mb-5">
+            <h3> Resultados </h3>
+        </div>
+    </div>
+    <table class="table table-centered">
+        <% @local_storages.each do |ls| %>
+            <tr>
+                <td> <%= ls.name %> </td>
+                <td> <%= ls.city %> </td>
+                <td> <%= link_to "Detalhes", local_storage_path(ls.key)%>
+            </tr>
+        <% end %>
+    </table>
+<% end %>

@@ -64,6 +64,14 @@ class LocalStoragesController < ApplicationController
         format.json { head :no_content }
       end
     end
+
+    def ask_local
+    end
+
+    def query_results
+      city = params[:city]
+      @local_storages = LocalStoragesCollection.by_example(city: city)
+    end
   
     private
   

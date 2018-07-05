@@ -1,0 +1,11 @@
+<%= dialog_sm do %>
+  <div class="card shadow">
+    <div class="card-body">
+      <%= bootstrap_form_tag url: 'medicines/query_results' do |f| %>
+        <%= f.text_field :medicine, autofocus: true%>
+        <%= f.submit "Pesquisar", class: "btn btn-primary btn-block" %>
+      <% end %>
+      <hr/>
+    </div>
+  </div>
+<% end %>
