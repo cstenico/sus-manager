@@ -1,8 +1,8 @@
 development:
   protocol: 'http'
-  host: 'localhost'
+  host: '192.168.0.171'
   port: 8529
-  password: ''
+  password: 'root'
   username: 'root'
   database: 'sus_manager_development'
 
