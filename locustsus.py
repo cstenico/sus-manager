@@ -4,7 +4,7 @@ class WebsiteTasks(TaskSet):
 
     @task
     def login(self):
-        self.client.post("/", {"email":"stenico.camila@gmail.com", "password":"1234"})
+        self.client.get("/", {"email":"stenico.camila@gmail.com", "password":"1234"})
         
     @task
     def list_storages(self):
